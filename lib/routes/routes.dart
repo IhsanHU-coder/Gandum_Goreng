@@ -1,5 +1,4 @@
 class AppRoutes {
-
-  static final home = '/home';
-
+  
+  static const String dashboard = "/dashboard";
 }
