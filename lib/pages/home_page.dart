@@ -1,10 +1,10 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:gandum_goreng/component/button_component.dart';
 import 'package:gandum_goreng/component/product_card.dart';
 import 'package:gandum_goreng/component/text_fild.dart';
 import 'package:gandum_goreng/controllers/controller_product.dart';
+import 'package:gandum_goreng/controllers/payment_controller.dart';
+import 'package:gandum_goreng/services/midtrans_service.dart';
 import 'package:gandum_goreng/utils/colors_app.dart';
 import 'package:gandum_goreng/utils/text_app.dart';
 import 'package:get/get.dart';
@@ -13,6 +13,9 @@ class HomePage extends StatelessWidget {
   HomePage({super.key});
 
   final ProductController controller = Get.put(ProductController());
+final PaymentController paymentController =
+    Get.put(PaymentController());
+    
 
   @override
   Widget build(BuildContext context) {
@@ -53,8 +56,7 @@ class HomePage extends StatelessWidget {
                       showDeleteConfirm();
                     },
                     onBuy: () {
-                      controller.selectProduct(product);
-                      print('BUY ${product.name}');
+                      paymentController.payProduct(product);
                     },
                   );
                 },

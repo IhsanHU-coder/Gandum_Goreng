@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gandum_goreng/services/midtrans_service.dart';
 import 'package:gandum_goreng/utils/firebase_options.dart';
 import 'package:get/get.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -12,6 +13,8 @@ Future<void> main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
+  // await MidtransService.init();
 
   runApp(const MyApp());
 }

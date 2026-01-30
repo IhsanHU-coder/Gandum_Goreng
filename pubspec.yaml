@@ -40,6 +40,8 @@ dependencies:
   google_fonts: ^6.1.0
   firebase_storage: ^13.0.6
   image_picker: ^0.8.9
+  webview_flutter: ^4.13.1
+  url_launcher: ^6.3.2
   
 dev_dependencies:
   flutter_test:
