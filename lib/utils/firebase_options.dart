@@ -41,47 +41,52 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyCZK43poN0cFmdiIYFRzSvywOxEqaIIY8E',
-    appId: '1:333633367376:web:86362804739eb2039a5055',
-    messagingSenderId: '333633367376',
-    projectId: 'pentingpayustore',
-    authDomain: 'pentingpayustore.firebaseapp.com',
-    storageBucket: 'pentingpayustore.firebasestorage.app',
-  );
-
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyA8aXIhihdyCkqVQ_nFOAxSSJcm3UF_hPk',
-    appId: '1:333633367376:ios:dcf36259fdf3c8bc9a5055',
-    messagingSenderId: '333633367376',
-    projectId: 'pentingpayustore',
-    storageBucket: 'pentingpayustore.firebasestorage.app',
-    iosBundleId: 'com.example.paymentGateawayApp',
-  );
-
-  static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyA8aXIhihdyCkqVQ_nFOAxSSJcm3UF_hPk',
-    appId: '1:333633367376:ios:dcf36259fdf3c8bc9a5055',
-    messagingSenderId: '333633367376',
-    projectId: 'pentingpayustore',
-    storageBucket: 'pentingpayustore.firebasestorage.app',
-    iosBundleId: 'com.example.paymentGateawayApp',
-  );
-
-  static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyCZK43poN0cFmdiIYFRzSvywOxEqaIIY8E',
-    appId: '1:333633367376:web:f0aa4633c58d16db9a5055',
-    messagingSenderId: '333633367376',
-    projectId: 'pentingpayustore',
-    authDomain: 'pentingpayustore.firebaseapp.com',
-    storageBucket: 'pentingpayustore.firebasestorage.app',
+    apiKey: 'AIzaSyDABT0Ny5kNkzg9h928IhUeTl2UDMVYDBI',
+    appId: '1:530435381631:web:d7a86f00302b6ec38c624a',
+    messagingSenderId: '530435381631',
+    projectId: 'project-flutter-notification',
+    authDomain: 'project-flutter-notification.firebaseapp.com',
+    storageBucket: 'project-flutter-notification.firebasestorage.app',
+    measurementId: 'G-DB7LDW9WYM',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCtz6-KAUqeAkFBrhOtRhqRPBDjCS6iTtY',
-    appId: '1:333633367376:android:868c81976a6834b29a5055',
-    messagingSenderId: '333633367376',
-    projectId: 'pentingpayustore',
-    storageBucket: 'pentingpayustore.firebasestorage.app',
+    apiKey: 'AIzaSyBQGcBDNZlHvWOzHKvQvjCjLG9y9TA5nbU',
+    appId: '1:530435381631:android:46f0dbed6afb8bb48c624a',
+    messagingSenderId: '530435381631',
+    projectId: 'project-flutter-notification',
+    storageBucket: 'project-flutter-notification.firebasestorage.app',
   );
 
+  static const FirebaseOptions ios = FirebaseOptions(
+    apiKey: 'AIzaSyA9XjCvlYDErRpF8I8178PWuXQJ-tjWRWY',
+    appId: '1:530435381631:ios:6ab6f06e4bcdeda88c624a',
+    messagingSenderId: '530435381631',
+    projectId: 'project-flutter-notification',
+    storageBucket: 'project-flutter-notification.firebasestorage.app',
+    androidClientId: '530435381631-n8rj6t68ead5pdlru6rllosaacp1bh0k.apps.googleusercontent.com',
+    iosClientId: '530435381631-f9hrrti9koks5vijhhnj9fdkdi5tsn02.apps.googleusercontent.com',
+    iosBundleId: 'com.example.gandumGoreng',
+  );
+
+  static const FirebaseOptions macos = FirebaseOptions(
+    apiKey: 'AIzaSyA9XjCvlYDErRpF8I8178PWuXQJ-tjWRWY',
+    appId: '1:530435381631:ios:6ab6f06e4bcdeda88c624a',
+    messagingSenderId: '530435381631',
+    projectId: 'project-flutter-notification',
+    storageBucket: 'project-flutter-notification.firebasestorage.app',
+    androidClientId: '530435381631-n8rj6t68ead5pdlru6rllosaacp1bh0k.apps.googleusercontent.com',
+    iosClientId: '530435381631-f9hrrti9koks5vijhhnj9fdkdi5tsn02.apps.googleusercontent.com',
+    iosBundleId: 'com.example.gandumGoreng',
+  );
+
+  static const FirebaseOptions windows = FirebaseOptions(
+    apiKey: 'AIzaSyDABT0Ny5kNkzg9h928IhUeTl2UDMVYDBI',
+    appId: '1:530435381631:web:f1a7cb8bba0ed7df8c624a',
+    messagingSenderId: '530435381631',
+    projectId: 'project-flutter-notification',
+    authDomain: 'project-flutter-notification.firebaseapp.com',
+    storageBucket: 'project-flutter-notification.firebasestorage.app',
+    measurementId: 'G-EL0WVSG8F2',
+  );
 }

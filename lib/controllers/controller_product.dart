@@ -26,6 +26,12 @@ class ProductController extends GetxController {
   final TextEditingController skuC = TextEditingController();
   final TextEditingController descriptionC = TextEditingController();
   final TextEditingController categoryC = TextEditingController();
+  var isMobile = true.obs;
+
+  void updateLayout(BoxConstraints constraints){
+    isMobile.value = constraints.maxWidth < 600;//640
+    
+  }
 
   @override
   void onInit() {
@@ -60,7 +66,7 @@ class ProductController extends GetxController {
       isLoading.value = true;
 
       final docRef =
-      FirebaseFirestore.instance.collection('products').doc();
+      FirebaseFirestore.instance.collection('project-flutter-notification').doc();
       final productId = docRef.id;
 
       String? imageUrl;

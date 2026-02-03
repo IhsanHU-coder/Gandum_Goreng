@@ -1,0 +1,76 @@
+{
+  "project_info": {
+    "project_number": "530435381631",
+    "project_id": "project-flutter-notification",
+    "storage_bucket": "project-flutter-notification.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:530435381631:android:46f0dbed6afb8bb48c624a",
+        "android_client_info": {
+          "package_name": "com.example.gandum_goreng"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "530435381631-jcfu824v3min9nego54c6pdjjlemc358.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQGcBDNZlHvWOzHKvQvjCjLG9y9TA5nbU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "530435381631-jcfu824v3min9nego54c6pdjjlemc358.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:530435381631:android:a7af7eeee722525b8c624a",
+        "android_client_info": {
+          "package_name": "com.example.project_dart_1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "530435381631-n8rj6t68ead5pdlru6rllosaacp1bh0k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.project_dart_1",
+            "certificate_hash": "93f0df517d3e3f0da2b9d276a2a2e0acca182dd0"
+          }
+        },
+        {
+          "client_id": "530435381631-jcfu824v3min9nego54c6pdjjlemc358.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQGcBDNZlHvWOzHKvQvjCjLG9y9TA5nbU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "530435381631-jcfu824v3min9nego54c6pdjjlemc358.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

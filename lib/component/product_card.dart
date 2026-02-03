@@ -21,142 +21,159 @@ class ProductCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final bool isOutOfStock = product.stock <= 0;
 
-    return InkWell(
-      borderRadius: BorderRadius.circular(12),
-      onTap: onEdit,
-      child: Card(
-        color: AppColors.card,
-        elevation: 1.5,
-        margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
-          side: const BorderSide(color: AppColors.border),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(12),
-          child: Column(
-            children: [
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    width: 56,
-                    height: 56,
-                    decoration: BoxDecoration(
-                      color: AppColors.primaryLight,
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    clipBehavior: Clip.antiAlias,
-                    child: product.imageUrl != null
-                        ? Image.network(
-                      product.imageUrl!,
-                      fit: BoxFit.cover,
-                      errorBuilder: (context, error, stackTrace) {
-                        return const Icon(
-                          Icons.inventory_2_outlined,
-                          color: AppColors.primary,
-                        );
-                      },
-                    )
-                        : const Icon(
-                      Icons.inventory_2_outlined,
-                      color: AppColors.primary,
-                    ),
+    return Card(
+      color: AppColors.card,
+      elevation: 1.5,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+        side: const BorderSide(color: AppColors.border),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          // ================= IMAGE + ACTION =================
+          Expanded(
+            child: Stack(
+              children: [
+                ClipRRect(
+                  borderRadius: const BorderRadius.vertical(
+                    top: Radius.circular(16),
                   ),
+                  child: product.imageUrl != null
+                      ? Image.network(
+                          product.imageUrl!,
+                          fit: BoxFit.cover,
+                          width: double.infinity,
+                          errorBuilder: (_, __, ___) =>
+                              _imagePlaceholder(),
+                        )
+                      : _imagePlaceholder(),
+                ),
 
-                  const SizedBox(width: 12),
-
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                // ===== EDIT & DELETE BUTTON =====
+                if (onEdit != null || onDelete != null)
+                  Positioned(
+                    top: 8,
+                    right: 8,
+                    child: Row(
                       children: [
-                        Text(
-                          product.name,
-                          style: AppTextStyle.bodyLarge.copyWith(
-                            fontWeight: FontWeight.w600,
+                        if (onEdit != null)
+                          _iconButton(
+                            icon: Icons.edit,
+                            color: AppColors.primary,
+                            onTap: onEdit!,
                           ),
-                        ),
-
-                        if (product.sku != null)
-                          Padding(
-                            padding: const EdgeInsets.only(top: 2),
-                            child: Text(
-                              product.sku!,
-                              style: AppTextStyle.caption,
-                            ),
+                        const SizedBox(width: 6),
+                        if (onDelete != null)
+                          _iconButton(
+                            icon: Icons.delete,
+                            color: AppColors.error,
+                            onTap: onDelete!,
                           ),
-
-                        const SizedBox(height: 4),
-
-                        Text(
-                          'Rp ${product.price}',
-                          style: AppTextStyle.bodyMedium.copyWith(
-                            color: AppColors.success,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-
-                        const SizedBox(height: 4),
-
-                        Text(
-                          isOutOfStock
-                              ? 'Stok habis'
-                              : 'Stock: ${product.stock}',
-                          style: AppTextStyle.bodySmall.copyWith(
-                            color: isOutOfStock
-                                ? AppColors.error
-                                : AppColors.textSecondary,
-                          ),
-                        ),
                       ],
                     ),
                   ),
+              ],
+            ),
+          ),
 
-                  Column(
-                    children: [
-                      if (onEdit != null)
-                        IconButton(
-                          icon: const Icon(
-                            Icons.edit,
-                            color: AppColors.warning,
-                          ),
-                          onPressed: onEdit,
-                        ),
-                      if (onDelete != null)
-                        IconButton(
-                          icon: const Icon(
-                            Icons.delete,
-                            color: AppColors.error,
-                          ),
-                          onPressed: onDelete,
-                        ),
-                    ],
-                  ),
-                ],
-              ),
-
-              const SizedBox(height: 12),
-
-              SizedBox(
-                width: double.infinity,
-                height: 40,
-                child: ElevatedButton(
-                  onPressed: isOutOfStock ? null : onBuy,
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.primary,
-                    disabledBackgroundColor: AppColors.border,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
-                  child: Text(
-                    isOutOfStock ? 'Stok Habis' : 'Buy',
-                    style: AppTextStyle.button,
+          // ================= CONTENT =================
+          Padding(
+            padding: const EdgeInsets.all(10),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // NAME
+                Text(
+                  product.name,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: AppTextStyle.bodyMedium.copyWith(
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
-              ),
-            ],
+
+                const SizedBox(height: 4),
+
+                // PRICE
+                Text(
+                  'Rp ${product.price}',
+                  style: AppTextStyle.bodyMedium.copyWith(
+                    color: AppColors.success,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(height: 4),
+
+                // STOCK
+                Text(
+                  isOutOfStock
+                      ? 'Stok habis'
+                      : 'Stock: ${product.stock}',
+                  style: AppTextStyle.bodySmall.copyWith(
+                    color: isOutOfStock
+                        ? AppColors.error
+                        : AppColors.textSecondary,
+                  ),
+                ),
+
+                const SizedBox(height: 10),
+
+                // BUY BUTTON
+                SizedBox(
+                  width: double.infinity,
+                  height: 38,
+                  child: ElevatedButton(
+                    onPressed: isOutOfStock ? null : onBuy,
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: AppColors.primary,
+                      disabledBackgroundColor: AppColors.border,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                    child: Text(
+                      isOutOfStock ? 'Stok Habis' : 'Buy',
+                      style: AppTextStyle.button,
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
+        ],
+      ),
+    );
+  }
+
+  // ================= SMALL ICON BUTTON =================
+  Widget _iconButton({
+    required IconData icon,
+    required Color color,
+    required VoidCallback onTap,
+  }) {
+    return InkWell(
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(20),
+      child: Container(
+        padding: const EdgeInsets.all(6),
+        decoration: BoxDecoration(
+          color: Colors.white.withOpacity(0.9),
+          shape: BoxShape.circle,
+        ),
+        child: Icon(icon, size: 18, color: color),
+      ),
+    );
+  }
+
+  Widget _imagePlaceholder() {
+    return Container(
+      color: AppColors.primaryLight,
+      child: const Center(
+        child: Icon(
+          Icons.inventory_2_outlined,
+          color: AppColors.primary,
+          size: 40,
         ),
       ),
     );
